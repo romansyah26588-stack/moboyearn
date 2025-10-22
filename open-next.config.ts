@@ -1,4 +1,6 @@
-import { OpenNextConfig } from '@opennextjs/cloudflare';
+// open-next.config.ts
+
 /** @type {import('@opennextjs/cloudflare').OpenNextConfig} */
 const config = {};
-module.exports = config;
+
+export default config;
