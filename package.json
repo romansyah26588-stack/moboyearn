@@ -1,3 +1,6 @@
+"engines": {
+  "node": ">=20.0.0"
+}
 {
   "name": "nextjs_tailwind_shadcn_ts",
   "version": "0.1.0",
