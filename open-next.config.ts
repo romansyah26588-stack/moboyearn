@@ -3,8 +3,8 @@
 /** @type {import('@opennextjs/cloudflare').OpenNextConfig} */
 const config = {};
 
-// Ekspor sebagai CommonJS, dengan 'default' juga diatur
+// Mengekspor sebuah objek yang memiliki kunci 'default'
+// yang berisi objek konfigurasi OpenNext yang sebenarnya.
 module.exports = {
-  ...config,
-  default: config, // Menambahkan properti 'default' yang eksplisit
+  default: config,
 };
