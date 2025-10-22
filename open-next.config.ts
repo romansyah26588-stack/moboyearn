@@ -1,11 +1,20 @@
 // open-next.config.ts
 
+// Hapus type annotation untuk menghindari konflik
+// /** @type {import('@opennextjs/cloudflare').OpenNextConfig} */
+
 const config = {
+  // Pastikan kunci 'default' ada di level teratas
   default: {
-    // Anda bisa meninggalkan ini kosong atau menambahkan override dasar Cloudflare di sini.
-    override: {},
+    // Tambahkan konfigurasi minimal untuk Cloudflare agar tidak kosong
+    override: {
+      wrapper: "cloudflare-node",
+      converter: "edge",
+      proxyExternalRequest: "fetch",
+    },
   },
 };
 
-// Menggunakan sintaks CommonJS untuk mengekspor objek yang memiliki kunci 'default'
+// Gunakan CommonJS module.exports untuk mengekspor objek config.
+// Ini adalah format yang paling mungkin diharapkan oleh sistem build OpenNext yang lama.
 module.exports = config;
