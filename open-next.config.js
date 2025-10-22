@@ -1,7 +1,9 @@
 import { OpenNextConfig } from '@opennextjs/cloudflare';
 // Tidak perlu import types jika menggunakan .js
-/** @type {import('@opennextjs/cloudflare').OpenNextConfig} */
+@type {import('@opennextjs/cloudflare').OpenNextConfig}
 const config = {
-  // Biarkan kosong untuk konfigurasi default
+  // Tambahkan konfigurasi spesifik di sini jika diperlukan.
+  // Misalnya, jika Anda memiliki aset statis yang perlu diabaikan atau disalin secara khusus.
 };
-export default config;
+
+module.exports = config;
