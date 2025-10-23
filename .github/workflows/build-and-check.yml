@@ -37,15 +37,9 @@ jobs:
       - name: Run build command
         run: npm run deploy:build
 
-      # Langkah 5: Buat manual file _routes.json jika tidak ada (INI ADALAH LANGKAH BARU)
-      - name: Manually create _routes.json
-        run: |
-          mkdir -p .open-next
-          echo '{"version": 1, "include": ["/*"], "exclude": ["/_next/static/*", "/_next/image*"]}' > .open-next/_routes.json
-
-      # Langkah 6: Tampilkan isi file _routes.json di log
-      - name: Print _routes.json content
-        run: cat .open-next/_routes.json
+      # Langkah 5: Debug - Lihat isi folder setelah build (INI ADALAH LANGKAH BARU)
+      - name: Debug - List directory contents
+        run: ls -la
 
       # Langkah 7: Upload hasil build (folder .open-next) agar bisa diunduh
       - name: Upload build artifacts
