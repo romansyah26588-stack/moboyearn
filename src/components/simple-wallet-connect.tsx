@@ -7,7 +7,8 @@ import { Wallet, ExternalLink, Copy, Check, AlertCircle } from 'lucide-react';
 import { useState } from 'react';
 
 export function SimpleWalletConnect() {
-  const { isConnected, address, isConnecting, balance, connectWallet, disconnectWallet } = useWalletStore();
+  // PERBAIKAN: Hapus 'balance' dari sini karena tidak ada di definisi WalletStore
+  const { isConnected, address, isConnecting, connectWallet, disconnectWallet } = useWalletStore();
   const [copied, setCopied] = useState(false);
 
   const copyAddress = async () => {
@@ -36,7 +37,8 @@ export function SimpleWalletConnect() {
           <Badge variant="secondary" className="font-mono text-xs bg-slate-700/50 border-blue-900/30">
             {address.slice(0, 4)}...{address.slice(-4)}
           </Badge>
-          <span className="text-xs text-blue-400">{balance.toFixed(4)} SOL</span>
+          {/* PERBAIKAN: Sembunyikan sementara tampilan saldo karena variabel 'balance' tidak ada */}
+          {/* <span className="text-xs text-blue-400">{balance.toFixed(4)} SOL</span> */}
         </div>
         
         <div className="flex items-center gap-1 ml-auto">
