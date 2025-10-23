@@ -1,15 +1,14 @@
 // open-next.config.ts
-// Ini adalah file konfigurasi CommonJS yang dinamakan .ts
 
 const config = {
-  // Kunci 'default' untuk mengakomodasi error lama (walaupun aneh di CommonJS)
+  // Objek konfigurasi yang diminta
   default: {
     override: {
-      wrapper: "cloudflare-node",
-      converter: "edge",
+      wrapper: "cloudflare-node", // Nilai yang dibutuhkan untuk Cloudflare
+      converter: "edge",          // Nilai yang dibutuhkan untuk Cloudflare
     },
   },
 };
 
-// CommonJS module export yang paling universal
-module.exports = config;
+// Gunakan export default
+export default config;
