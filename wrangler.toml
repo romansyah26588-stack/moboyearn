@@ -1,0 +1,8 @@
+# wrangler.toml
+
+name = "moboypost" # Ganti dengan nama aplikasi Anda
+compatibility_date = "2024-01-01" # Tanggal kompatibilitas, bisa dibiarkan seperti ini
+# compatibility_flags = ["nodejs_compat"] # Hapus komentar jika Anda memerlukan kompatibilitas Node.js
+
+# [vars]
+# MY_VARIABLE = "my_value" # Definisikan environment variable di sini jika diperlukan
