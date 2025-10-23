@@ -105,12 +105,18 @@ export const useWalletStore = create<WalletStore>()(
           
           let errorMessage = 'Failed to connect wallet.';
           
-          if (error.message.includes('No wallet found')) {
-            errorMessage = 'No wallet found. Please install Phantom or Solflare wallet.\n\nInstall Phantom: https://phantom.app/\nInstall Solflare: https://solflare.com/';
-          } else if (error.message.includes('User rejected')) {
-            errorMessage = 'Connection rejected by user. Please try again.';
+          // PERBAIKAN: Periksa apakah 'error' adalah instance dari 'Error' sebelum mengakses .message
+          if (error instanceof Error) {
+            if (error.message.includes('No wallet found')) {
+              errorMessage = 'No wallet found. Please install Phantom or Solflare wallet.\n\nInstall Phantom: https://phantom.app/\nInstall Solflare: https://solflare.com/';
+            } else if (error.message.includes('User rejected')) {
+              errorMessage = 'Connection rejected by user. Please try again.';
+            } else {
+              errorMessage = `Connection failed: ${error.message}`;
+            }
           } else {
-            errorMessage = `Connection failed: ${error.message}`;
+            // Jika error bukan instance dari Error, gunakan pesan generik
+            errorMessage = 'An unknown error occurred during wallet connection.';
           }
           
           alert(errorMessage);
