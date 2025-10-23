@@ -1,9 +1,13 @@
-# wrangler.toml
+name = "moboy-earn"
+# Tanggal kompatibilitas sebaiknya di-update ke tanggal terkini
+compatibility_date = "2024-10-23" 
 
-name = "moboy-earn" # Ganti dengan nama aplikasi Anda
-compatibility_date = "2024-10-23" # Tanggal kompatibilitas, bisa dibiarkan seperti ini
-pages_build_output_dir = ".open-next" # ini untuk menghilangkan peringatan
-# compatibility_flags = ["nodejs_compat"] # Hapus komentar jika Anda memerlukan kompatibilitas Node.js
+# Konfigurasi untuk Pages, ini sudah benar
+pages_build_output_dir = ".open-next"
 
-# [vars]
-# MY_VARIABLE = "my_value" # Definisikan environment variable di sini jika diperlukan
+# Coba tambahkan baris berikut jika belum ada. Ini membantu memastikan routing berjalan dengan baik.
+# <-- PERHATIKAN INI
+[compatibility_flags]
+nodejs_compat = true
+
+# ... konfigurasi lainnya jika ada, seperti [vars] untuk environment variables
