@@ -41,7 +41,8 @@ export const useWalletStore = create<WalletStore>()(
           }
 
           // Simple check for any wallet
-          let wallet = null;
+          // PERBAIKAN: Berikan tipe 'any' pada variabel wallet agar bisa menerima objek window.solana atau window.solflare
+          let wallet: any = null;
           let walletName = '';
 
           // Check Phantom
