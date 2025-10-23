@@ -1,13 +1,10 @@
 name = "moboy-earn"
-# Tanggal kompatibilitas sebaiknya di-update ke tanggal terkini
-compatibility_date = "2024-10-23" 
+compatibility_date = "2024-10-23"
 
-# Konfigurasi untuk Pages, ini sudah benar
+# Konfigurasi untuk Pages
 pages_build_output_dir = ".open-next"
 
-# Coba tambahkan baris berikut jika belum ada. Ini membantu memastikan routing berjalan dengan baik.
-# <-- PERHATIKAN INI
-[compatibility_flags]
-nodejs_compat = true
+# Format yang BENAR untuk compatibility_flags
+compatibility_flags = ["nodejs_compat"]
 
-# ... konfigurasi lainnya jika ada, seperti [vars] untuk environment variables
+# ... konfigurasi lainnya jika ada
