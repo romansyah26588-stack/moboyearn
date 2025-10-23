@@ -2,24 +2,20 @@
 
 import { useEffect } from 'react';
 
-declare global {
-  interface Window {
-    solana?: any;
-    solflare?: any;
-  }
-}
+// PERBAIKAN: Hapus blok 'declare global' karena tipe 'window.solana'
+// sudah didefinisikan oleh library lain (misalnya @solana/wallet-adapter).
+// Mendeklarasikannya lagi dengan tipe 'any' menyebabkan konflik tipe.
 
 export function WalletDebugger() {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       console.log('Phantom installed:', !!window.solana?.isPhantom);
       
-      // PERBAIKAN: Untuk Phantom, gunakan publicKey untuk mengecek koneksi
+      // PERBAIKAN SEBELUMNYA: Gunakan publicKey untuk mengecek koneksi Phantom
       console.log('Phantom connected:', !!window.solana?.publicKey);
       console.log('Phantom public key:', window.solana?.publicKey?.toString());
 
       console.log('Solflare installed:', !!window.solflare);
-      // Solflare mungkin memiliki properti isConnected, jadi bisa dibiarkan
       console.log('Solflare connected:', !!window.solflare?.isConnected);
       console.log('Solflare public key:', window.solflare?.publicKey?.toString());
     }
