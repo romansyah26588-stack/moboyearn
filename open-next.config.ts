@@ -1,24 +1,21 @@
-// open-next.config.ts
-
-import { CloudflareOpenNextConfig } from "@opennextjs/cloudflare/dist/cli/types";
-
-const config: CloudflareOpenNextConfig = {
-  // This is the default export structure the error is looking for
+// Pastikan file menggunakan default export
+const openNextConfig = {
   default: {
-    // You can remove the 'override' section if you want to use the defaults
+    // Pastikan properti ini ada dan dikonfigurasi
     override: {
-      wrapper: "cloudflare-node", // or "edge" if you are using Cloudflare Edge features
+      wrapper: "cloudflare-node", // atau 'cloudflare-edge' tergantung kebutuhan
       converter: "edge",
       proxyExternalRequest: "fetch",
-      // Choose an incrementalCache/tagCache solution, or use "dummy"
-      incrementalCache: "dummy",
-      tagCache: "dummy",
-      queue: "dummy",
+      incrementalCache: "dummy", // Placeholder, ganti dengan implementasi cache jika diperlukan
+      tagCache: "dummy", // Placeholder
+      queue: "dummy", // Placeholder
     },
   },
-  // Add other properties if needed
-  // edgeExternals: ["node:crypto"], // Example of an optional property
-  // middleware: { ... }            // Example of an optional property
+  // Tambahkan properti lain yang mungkin diperlukan
+  edgeExternals: [], 
+  middleware: {
+    external: false,
+  }
 };
 
-export default config;
+export default openNextConfig;
