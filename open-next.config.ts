@@ -1,34 +1,26 @@
 // open-next.config.ts
 
-const config = {
-  // Properti 'default' harus ada
+export default {
   default: {
-    // Properti 'override' harus ada
     override: {
-      // Tentukan wrapper dan converter yang Anda butuhkan
-      wrapper: "cloudflare-node", // atau "cloudflare-edge"
+      wrapper: "cloudflare-node",
       converter: "edge",
       proxyExternalRequest: "fetch",
-      // Pastikan semua properti yang wajib diisi (meskipun hanya 'dummy') ada
-      incrementalCache: "dummy", 
-      tagCache: "dummy",
-      queue: "dummy", 
+      incrementalCache: "dummy", // atau fungsi kustom
+      tagCache: "dummy",         // atau fungsi kustom
+      queue: "dummy",            // atau "direct" atau fungsi kustom
     },
   },
-  // Properti lain (opsional, tapi seringkali membantu)
-  edgeExternals: [], 
+  edgeExternals: ["node:crypto"],
   middleware: {
     external: true,
     override: {
-        wrapper: "cloudflare-edge",
-        converter: "edge",
-        proxyExternalRequest: "fetch",
-        incrementalCache: "dummy",
-        tagCache: "dummy",
-        queue: "dummy",
+      wrapper: "cloudflare-edge",
+      converter: "edge",
+      proxyExternalRequest: "fetch",
+      incrementalCache: "dummy", // atau fungsi kustom
+      tagCache: "dummy",         // atau fungsi kustom
+      queue: "dummy",            // atau "direct" atau fungsi kustom
     },
   },
 };
-
-// WAJIB: Gunakan default export
-export default config;
