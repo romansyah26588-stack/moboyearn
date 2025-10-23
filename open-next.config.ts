@@ -1,2 +1,4 @@
 // open-next.config.ts
-export default {};
+export default {
+  default: {}
+};
