@@ -23,11 +23,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Langkah 2: Setup Node.js (menggunakan versi 18)
+      # Langkah 2: Setup Node.js (MENGGUNAKAN VERSI 20)
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18' # Bisa disesuaikan dengan versi yang Anda gunakan
+          node-version: '20' # DIPERBAIKI: Ubah dari 18 ke 20
 
       # Langkah 3: Install semua dependency dari package.json
       - name: Install dependencies
@@ -37,7 +37,7 @@ jobs:
       - name: Run build command
         run: npm run deploy:build
 
-      # Langkah 5: Tampilkan isi file _routes.json di log (INI ADALAH LANGKAH BARU)
+      # Langkah 5: Tampilkan isi file _routes.json di log
       - name: Print _routes.json content
         run: cat .open-next/_routes.json
 
