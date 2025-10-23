@@ -1,0 +1,45 @@
+# Nama workflow yang akan tampil di halaman Actions
+name: Build and Check Output
+
+# Kapan workflow ini dijalankan?
+# Kita jalankan setiap ada push ke branch 'main'
+on:
+  push:
+    branches:
+      - main
+
+# Pekerjaan (job) yang akan dijalankan
+jobs:
+  build:
+    # Nama job
+    name: Run Build Command
+    
+    # Jenis mesin virtual yang akan digunakan
+    runs-on: ubuntu-latest
+
+    # Langkah-langkah yang akan dijalankan
+    steps:
+      # Langkah 1: Download kode dari repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Langkah 2: Setup Node.js (menggunakan versi 18)
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18' # Bisa disesuaikan dengan versi yang Anda gunakan
+
+      # Langkah 3: Install semua dependency dari package.json
+      - name: Install dependencies
+        run: npm install
+
+      # Langkah 4: Jalankan perintah build Anda
+      - name: Run build command
+        run: npm run deploy:build
+
+      # Langkah 5: Upload hasil build (folder .open-next) agar bisa diunduh
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: open-next-build-output # Nama untuk file yang akan diunduh
+          path: .open-next # Folder yang ingin kita unduh
