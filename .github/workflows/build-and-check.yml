@@ -37,9 +37,12 @@ jobs:
       - name: Run build command
         run: npm run deploy:build
 
-      # Langkah 5: Debug - Lihat isi folder setelah build (INI ADALAH LANGKAH BARU)
+      # Langkah 5: Debug - Lihat isi folder setelah build
       - name: Debug - List directory contents
-        run: ls -la
+        run: |
+          ls -la
+          echo "--- CHECKING CONTENTS OF .open-next ---"
+          ls -la .open-next/
 
       # Langkah 7: Upload hasil build (folder .open-next) agar bisa diunduh
       - name: Upload build artifacts
